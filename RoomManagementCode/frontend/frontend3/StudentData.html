@@ -1,59 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Student Data</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&amp;display=swap"
 
-      rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="Style1.css">
-  </head>
-  <body>
-    <div class="contact-form">
-      <h2 >Student Data</h2>
-      <form action="">
-        <p>Roll Number</p>
-        <input id="name" placeholder="Enter Roll Number">
-        <div align="center"> <input name="Get Details" value="Get Details" id="press"
+<head>
+	<meta charset="UTF-8">
+	<title>Student Data</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&amp;display=swap"
+		rel="stylesheet">
 
-onclick="clicked()" type="button"> </div>
-        <br>
-        <div id="hide">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th>Roll number</th>
-                <th>Name</th>
-                <th>Contact number</th>
-                <th>occupied room</th>
-                <th>Hostel Number</th>
-              </tr>
-              <tr>
-                <td id="namechange">19ucs127 </td>
-                <td> Abhishek</td>
-                <td> 98********</td>
-                <td>E-20* </td>
-                <td>Bh1 </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <script>
+</head>
 
-				var i=0;
-				if(i==0){
+<body>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid white;
+			border-collapse: collapse;
+			color: #fff;
+			padding: 5px
+		}
+
+		body:before {
+			content: '';
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			background-image: url(https://admissions.lnmiit.ac.in/assets/img/gallery/big/BOYS%20HOSTEL%203.jpg);
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			-webkit-background-size: cover;
+			background-size: cover;
+			-webkit-filter: blur(10px);
+			-moz-filter: blur(10px);
+			filter: blur(5px);
+		}
+
+		.contact-form {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 400px;
+			height: 350px;
+			padding: 80px 40px;
+			background: rgba(0, 0, 0, 0.5);
+		}
+
+		.avatar {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			overflow: hidden;
+			top: calc(-80px/2);
+			left: 190px;
+		}
+
+		.contact-form h2 {
+			margin: 0;
+			padding: 0 0 20px;
+			color: #fff;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.contact-form p {
+			margin: 0;
+			padding: 0;
+			font-weight: bold;
+			color: #fff;
+		}
+
+		.contact-form input {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		.contact-form input[type=text],
+		.contact-form input[type=password] {
+			border: none;
+			border-bottom: 1px solid #fff;
+			background: transparent;
+			outline: none;
+			height: 40px;
+			color: #fff;
+			font-size: 16px;
+		}
+
+		.contact-form input[type=submit] {
+			height: 30px;
+			color: #fff;
+			font-size: 15px;
+			background: red;
+			cursor: pointer;
+			border-radius: 25px;
+			border: none;
+			outline: none;
+			margin-top: 15%;
+		}
+
+		.contact-form a {
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		input[type=checkbox] {
+			width: 20%;
+		}
+
+		.button {
+			background-color: yellow;
+			border: none;
+			color: black;
+			padding: 10px 27px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+	</style>&gt;
+	<div class="contact-form">
+
+		<h2 style="color: yellow">Student Data</h2>
+		<form action="">
+			<P>Name</P>
+			<input id="person" placeholder="Enter your name">
+			<p>Roll Number</p>
+			<input id="name" placeholder="Enter Roll Number">
+
+
+			<div align="center">
+				<button class="button" type="button" id="press" onclick="clicked()">
+					Get Details
+				</button>
+
+			</div>
+			<br>
+			<div id="hide">
+				<a id="download_link" download="my_exported_file.txt" href=””>Download as Text File</a>
+				<table>
+					<tr>
+						<th>Roll number</th>
+						<th>Name</th>
+						<th>Contact number</th>
+						<th>occupied room</th>
+						<th>Hostel Number</th>
+					</tr>
+					<tr>
+						<td id="namechange">19ucs127 </td>
+						<td id="nammme"> Abhishek</td>
+						<td> 98********</td>
+						<td>E-20* </td>
+						<td>Bh1 </td>
+					</tr>
+
+				</table>
+			</div>
+			<script>
+
+				var i = 0;
+				if (i == 0) {
 					var visible = document.getElementById("hide");
 					visible.style.display = "none";
 				}
 				function clicked() {
-				 
+
 					var visible = document.getElementById("hide");
 					visible.style.display = "block";
-					i=1;
+					i = 1;
 					document.getElementById("namechange").innerHTML = document.getElementById("name").value
+
+					document.getElementById("nammme").innerHTML = document.getElementById("person").value
+					var t = document.getElementById("name").value;
+					var n = document.getElementById("person").value;
+					alert("the roll number is  " + t + "the name of the person  " + n);
+
+
+
+
+
+
+					var text = t.toString();
+					var name = n.toString();
+					text = text.concat(name);
+					console.log(text);
+
+
+
+					var data = new Blob([text], { type: 'text/plain' });
+
+					var url = window.URL.createObjectURL(data);
+
+					document.getElementById('download_link').href = url;
+
+
+					var url = window.URL.createObjectURL(data);
+					window.URL.revokeObjectURL(url);
 				}
-					</script> </form>
-    </div>
-    
-  </body>
+
+
+
+			</script>
+
+		</form>
+
+	</div>
+
+
+</body>
+
 </html>
